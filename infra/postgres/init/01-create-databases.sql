@@ -1,0 +1,5 @@
+CREATE DATABASE inventory;
+
+CREATE DATABASE orders;
+
+CREATE DATABASE payments;
