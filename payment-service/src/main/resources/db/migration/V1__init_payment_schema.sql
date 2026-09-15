@@ -7,6 +7,7 @@ CREATE TABLE
         external_ref varchar(100),
         version bigint NOT NULL DEFAULT 0,
         created_at timestamptz NOT NULL DEFAULT now (),
+        updated_at timestamptz NOT NULL DEFAULT now (),
         CONSTRAINT chk_payment_status CHECK (status IN ('PENDING', 'SUCCEEDED', 'FAILED'))
     );
 

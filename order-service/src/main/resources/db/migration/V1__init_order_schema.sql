@@ -18,6 +18,8 @@ CREATE TABLE
         order_id uuid NOT NULL REFERENCES orders (id),
         event_id uuid NOT NULL,
         seat_id uuid NOT NULL,
+        updated_at timestamptz NOT NULL DEFAULT now (),
+        created_at timestamptz NOT NULL DEFAULT now (),
         price numeric(12, 2) NOT NULL,
         CONSTRAINT uq_order_item UNIQUE (order_id, seat_id)
     );

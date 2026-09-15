@@ -4,7 +4,8 @@ CREATE TABLE
         name varchar(200) NOT NULL,
         venue varchar(150),
         event_date timestamptz NOT NULL,
-        created_at timestamptz NOT NULL DEFAULT now ()
+        created_at timestamptz NOT NULL DEFAULT now (),
+        updated_at timestamptz NOT NULL DEFAULT now ()
     );
 
 CREATE TABLE
@@ -17,6 +18,8 @@ CREATE TABLE
         version bigint NOT NULL DEFAULT 0,
         hold_token uuid,
         held_until timestamptz,
+        updated_at timestamptz NOT NULL DEFAULT now (),
+        created_at timestamptz NOT NULL DEFAULT now (),
         CONSTRAINT uq_seat UNIQUE (event_id, seat_row, seat_number),
         CONSTRAINT chk_seat_status CHECK (status IN ('AVAILABLE', 'HELD', 'RESERVED'))
     );
